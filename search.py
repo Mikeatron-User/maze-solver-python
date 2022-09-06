@@ -1,11 +1,5 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-# Node system used as the AI's internal interpretation of the maze
 import math, sys, getopt
-
+from sys import exit
 
 class node:
     parent = None
@@ -167,20 +161,19 @@ def printReturnPath(maze, path):
     scanX: int = 0
     scanY: int = 0
     found = 0
-    for r in maze:
+    for row in maze:
         scanX = 0
-        for c in r:
+        for column in row:
             found = 0
-            for n in path:
-
-                if scanX == n.x and scanY == n.y and not c == 'G':
+            for node in path:
+                if scanX == node.x and scanY == node.y and not column == 'G':
                     print('+', end='')
                     found = 1
             if found == 0:
-                print(str(c), end='')
+                print(str(column), end='')
             scanX = scanX + 1
         scanY = scanY + 1
-        print('\n')
+        print()
 
 
 def depthFirstSearch(startX, startY, maze):
