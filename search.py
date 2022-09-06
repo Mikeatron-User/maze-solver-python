@@ -167,7 +167,7 @@ def printReturnPath(maze, path):
             found = 0
             for node in path:
                 if scanX == node.x and scanY == node.y and not column == 'G':
-                    print('+', end='')
+                    print('•', end='')
                     found = 1
             if found == 0:
                 print(str(column), end='')
